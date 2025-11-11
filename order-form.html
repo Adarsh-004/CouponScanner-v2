@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Your Custom Artwork - Busy Canvas</title>
+    <link rel="icon" href="../assets/img/logo/1.jpg" />
+    <link rel="stylesheet" href="../assets/css/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../assets/css/order-form.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="form-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="../layout/index.html">
+                    <img src="../assets/img/logo/1.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"/>
+                    <span class="brand-text">Busy Canvas</span>
+                </a>
+                <a href="../layout/index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-header-content">
+                <h1>Order Your Custom Artwork</h1>
+                <p>Transform your memories into beautiful artwork. Fill out the form below to get started with your custom piece.</p>
+            </div>
+            
+            <div class="form-card">
+                <div class="form-card-header">
+                    <h2><i class="fas fa-palette"></i> Artwork Order Form</h2>
+                    <p>Tell us about your vision and we'll bring it to life</p>
+                </div>
+                
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">
+                                    <i class="fas fa-user"></i> Full Name
+                                </label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i> Email Address
+                                </label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="your.email@example.com" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phone">
+                                    <i class="fas fa-phone"></i> Phone Number
+                                </label>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+91 98765 43210" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="artworkType">
+                                    <i class="fas fa-paint-brush"></i> Artwork Type
+                                </label>
+                                <div class="select-wrapper">
+                                    <select class="form-control" id="artworkType" name="artworkType" required>
+                                        <option value="">Select Artwork Type</option>
+                                        <option value="portrait">Portrait</option>
+                                        <option value="landscape">Landscape</option>
+                                        <option value="abstract">Abstract</option>
+                                        <option value="still-life">Still Life</option>
+                                        <option value="custom">Custom Design</option>
+                                    </select>
+                                    <span class="custom-arrow">▼</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo Upload Section -->
+                    <div class="upload-section">
+                        <div class="form-group">
+                            <label for="photo">
+                                <i class="fas fa-image"></i> Upload Reference Photos
+                            </label>
+                            <div class="file-upload-area">
+                                <input class="form-control" type="file" id="formFileMultiple" multiple accept="image/*" required>
+                                <div class="upload-info">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Drag and drop your photos here or click to browse</p>
+                                    <small>Supported formats: JPG, PNG, GIF (Max 5MB each)</small>
+                                </div>
+                            </div>
+                            <div id="imagePreview" class="image-preview"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="frameSize">
+                                    <i class="fas fa-ruler"></i> Canvas Size
+                                </label>
+                                <div class="select-wrapper">
+                                    <select class="form-control" id="frameSize" name="frameSize" required>
+                                        <option value="">Select Canvas Size</option>
+                                        <option value="small">Small - 12" x 16" (30x40 cm)</option>
+                                        <option value="medium">Medium - 16" x 20" (40x50 cm)</option>
+                                        <option value="large">Large - 20" x 24" (50x60 cm)</option>
+                                        <option value="xlarge">Extra Large - 24" x 36" (60x90 cm)</option>
+                                        <option value="custom">Custom Size</option>
+                                    </select>
+                                    <span class="custom-arrow">▼</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="artStyle">
+                                    <i class="fas fa-palette"></i> Art Style
+                                </label>
+                                <div class="select-wrapper">
+                                    <select class="form-control" id="artStyle" name="artStyle" required>
+                                        <option value="">Select Art Style</option>
+                                        <option value="realistic">Realistic</option>
+                                        <option value="impressionist">Impressionist</option>
+                                        <option value="abstract">Abstract</option>
+                                        <option value="cartoon">Cartoon/Anime</option>
+                                        <option value="watercolor">Watercolor</option>
+                                        <option value="oil-painting">Oil Painting</option>
+                                    </select>
+                                    <span class="custom-arrow">▼</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="colorScheme">
+                                    <i class="fas fa-palette"></i> Color Scheme
+                                </label>
+                                <div class="select-wrapper">
+                                    <select class="form-control" id="colorScheme" name="colorScheme">
+                                        <option value="">Select Color Scheme (Optional)</option>
+                                        <option value="warm">Warm Colors</option>
+                                        <option value="cool">Cool Colors</option>
+                                        <option value="neutral">Neutral Colors</option>
+                                        <option value="vibrant">Vibrant Colors</option>
+                                        <option value="monochrome">Monochrome</option>
+                                    </select>
+                                    <span class="custom-arrow">▼</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="urgency">
+                                    <i class="fas fa-clock"></i> Urgency Level
+                                </label>
+                                <div class="select-wrapper">
+                                    <select class="form-control" id="urgency" name="urgency" required>
+                                        <option value="">Select Urgency</option>
+                                        <option value="standard">Standard (2-3 weeks)</option>
+                                        <option value="rush">Rush (1-2 weeks)</option>
+                                        <option value="express">Express (3-5 days)</option>
+                                    </select>
+                                    <span class="custom-arrow">▼</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialInstructions">
+                            <i class="fas fa-comment"></i> Special Instructions & Details
+                        </label>
+                        <textarea class="form-control" id="specialInstructions" name="specialInstructions" rows="5" placeholder="Tell us about your vision, any specific details, color preferences, or special requests..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">
+                            <i class="fas fa-rupee-sign"></i> Budget Range
+                        </label>
+                        <div class="select-wrapper">
+                            <select class="form-control" id="budget" name="budget" required>
+                                <option value="">Select Budget Range</option>
+                                <option value="2000-3000">₹2,000 - ₹3,000</option>
+                                <option value="3000-5000">₹3,000 - ₹5,000</option>
+                                <option value="5000-8000">₹5,000 - ₹8,000</option>
+                                <option value="8000+">₹8,000+ (Premium)</option>
+                            </select>
+                            <span class="custom-arrow">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Order
+                        </button>
+                        <button type="reset" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i> Reset Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h4>Free Delivery</h4>
+                    <p>We deliver your artwork safely to your doorstep</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Quality Guarantee</h4>
+                    <p>100% satisfaction guarantee on all our artwork</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>Timely Delivery</h4>
+                    <p>We respect deadlines and deliver on time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="form-footer">
+        <div class="container">
+            <p>&copy; 2024 Busy Canvas. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Image preview functionality
+        document.getElementById('formFileMultiple').addEventListener('change', function(e) {
+            const preview = document.getElementById('imagePreview');
+            preview.innerHTML = '';
+            
+            for (let file of e.target.files) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'preview-image';
+                        preview.appendChild(img);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
