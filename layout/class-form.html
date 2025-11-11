@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Your Art Class - Busy Canvas</title>
+    <link rel="icon" href="../assets/img/logo/1.jpg" />
+    <link rel="stylesheet" href="../assets/css/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../assets/css/class-form.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="form-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="../layout/index.html">
+                    <img src="../assets/img/logo/1.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"/>
+                    <span class="brand-text">Busy Canvas</span>
+                </a>
+                <a href="../layout/index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-header-content">
+                <h1>Book Your Art Class</h1>
+                <p>Learn from professional artists and unleash your creativity. Choose your preferred session and start your artistic journey today.</p>
+            </div>
+            
+            <div class="form-card">
+                <div class="form-card-header">
+                    <h2><i class="fas fa-chalkboard-teacher"></i> Class Booking Form</h2>
+                    <p>Tell us about your learning goals and we'll match you with the perfect session</p>
+                </div>
+                
+                <form action="#" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">
+                                    <i class="fas fa-user"></i> Full Name
+                                </label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i> Email Address
+                                </label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="your.email@example.com" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phone">
+                                    <i class="fas fa-phone"></i> Phone Number
+                                </label>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+91 98765 43210" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="age">
+                                    <i class="fas fa-birthday-cake"></i> Age
+                                </label>
+                                <input type="number" class="form-control" id="age" name="age" placeholder="Your age" min="5" max="100" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="sessionDate">
+                                    <i class="fas fa-calendar"></i> Preferred Date
+                                </label>
+                                <input type="date" class="form-control" id="sessionDate" name="sessionDate" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="sessionTime">
+                                    <i class="fas fa-clock"></i> Preferred Time
+                                </label>
+                                <input type="time" class="form-control" id="sessionTime" name="sessionTime" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="sessionType">
+                                    <i class="fas fa-graduation-cap"></i> Session Type
+                                </label>
+                                <div class="select-wrapper">
+                                    <select class="form-control" id="sessionType" name="sessionType" required>
+                                        <option value="">Select Session Type</option>
+                                        <option value="consultation">Free Consultation</option>
+                                        <option value="beginner">Beginner Class</option>
+                                        <option value="intermediate">Intermediate Class</option>
+                                        <option value="advanced">Advanced Class</option>
+                                        <option value="workshop">Workshop</option>
+                                        <option value="private">Private Lesson</option>
+                                    </select>
+                                    <span class="custom-arrow">▼</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="artMedium">
+                                    <i class="fas fa-paint-brush"></i> Art Medium
+                                </label>
+                                <div class="select-wrapper">
+                                    <select class="form-control" id="artMedium" name="artMedium" required>
+                                        <option value="">Select Art Medium</option>
+                                        <option value="pencil">Pencil Sketching</option>
+                                        <option value="watercolor">Watercolor</option>
+                                        <option value="acrylic">Acrylic Painting</option>
+                                        <option value="oil">Oil Painting</option>
+                                        <option value="digital">Digital Art</option>
+                                        <option value="mixed">Mixed Media</option>
+                                    </select>
+                                    <span class="custom-arrow">▼</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="experienceLevel">
+                                    <i class="fas fa-star"></i> Experience Level
+                                </label>
+                                <div class="select-wrapper">
+                                    <select class="form-control" id="experienceLevel" name="experienceLevel" required>
+                                        <option value="">Select Experience Level</option>
+                                        <option value="beginner">Complete Beginner</option>
+                                        <option value="basic">Basic Knowledge</option>
+                                        <option value="intermediate">Intermediate</option>
+                                        <option value="advanced">Advanced</option>
+                                        <option value="professional">Professional</option>
+                                    </select>
+                                    <span class="custom-arrow">▼</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="classDuration">
+                                    <i class="fas fa-hourglass-half"></i> Class Duration
+                                </label>
+                                <div class="select-wrapper">
+                                    <select class="form-control" id="classDuration" name="classDuration" required>
+                                        <option value="">Select Duration</option>
+                                        <option value="1hour">1 Hour Session</option>
+                                        <option value="2hour">2 Hour Session</option>
+                                        <option value="3hour">3 Hour Session</option>
+                                        <option value="full-day">Full Day Workshop</option>
+                                        <option value="weekend">Weekend Course</option>
+                                    </select>
+                                    <span class="custom-arrow">▼</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="classSize">
+                                    <i class="fas fa-users"></i> Preferred Class Size
+                                </label>
+                                <div class="select-wrapper">
+                                    <select class="form-control" id="classSize" name="classSize" required>
+                                        <option value="">Select Class Size</option>
+                                        <option value="private">Private (1-on-1)</option>
+                                        <option value="small">Small Group (2-5 students)</option>
+                                        <option value="medium">Medium Group (6-10 students)</option>
+                                        <option value="large">Large Group (11+ students)</option>
+                                    </select>
+                                    <span class="custom-arrow">▼</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="budget">
+                                    <i class="fas fa-rupee-sign"></i> Budget Range
+                                </label>
+                                <div class="select-wrapper">
+                                    <select class="form-control" id="budget" name="budget" required>
+                                        <option value="">Select Budget Range</option>
+                                        <option value="500-1000">₹500 - ₹1,000</option>
+                                        <option value="1000-2000">₹1,000 - ₹2,000</option>
+                                        <option value="2000-5000">₹2,000 - ₹5,000</option>
+                                        <option value="5000+">₹5,000+ (Premium)</option>
+                                    </select>
+                                    <span class="custom-arrow">▼</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="learningGoals">
+                            <i class="fas fa-bullseye"></i> Learning Goals
+                        </label>
+                        <textarea class="form-control" id="learningGoals" name="learningGoals" rows="4" placeholder="What do you want to learn? Any specific techniques or styles you're interested in?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialRequests">
+                            <i class="fas fa-comment"></i> Special Requests
+                        </label>
+                        <textarea class="form-control" id="specialRequests" name="specialRequests" rows="4" placeholder="Any special requests, accessibility needs, or additional information..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Book Session
+                        </button>
+                        <button type="reset" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i> Reset Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Class Information -->
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h4>Expert Instructors</h4>
+                    <p>Learn from professional artists with years of teaching experience</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-palette"></i>
+                    <h4>All Skill Levels</h4>
+                    <p>Classes available for beginners to advanced artists</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>Flexible Scheduling</h4>
+                    <p>Choose from morning, afternoon, or evening sessions</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-home"></i>
+                    <h4>Online & In-Person</h4>
+                    <p>Attend classes from home or visit our studio</p>
+                </div>
+            </div>
+
+            <!-- Class Types -->
+            <div class="class-types">
+                <h3>Available Class Types</h3>
+                <div class="class-grid">
+                    <div class="class-item">
+                        <div class="class-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Free Consultation</h4>
+                        <p>15-minute session to discuss your goals and recommend the best class for you</p>
+                        <span class="price">Free</span>
+                    </div>
+                    <div class="class-item">
+                        <div class="class-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4>Beginner Class</h4>
+                        <p>Perfect for those starting their artistic journey. Learn fundamentals and basic techniques</p>
+                        <span class="price">₹500/hour</span>
+                    </div>
+                    <div class="class-item">
+                        <div class="class-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Intermediate Class</h4>
+                        <p>For artists with basic knowledge. Enhance skills and learn advanced techniques</p>
+                        <span class="price">₹800/hour</span>
+                    </div>
+                    <div class="class-item">
+                        <div class="class-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h4>Advanced Class</h4>
+                        <p>For experienced artists. Master complex techniques and develop your unique style</p>
+                        <span class="price">₹1200/hour</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="form-footer">
+        <div class="container">
+            <p>&copy; 2024 Busy Canvas. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
