@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Order Your Custom Artwork - Busy Canvas</title>
     <link rel="icon" href="../assets/img/logo/1.jpg" />
-    <link rel="stylesheet" href="../assets/css/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../assets/css/order-form.css"/>
+    <link rel="stylesheet" href="../assets/css/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/order-form.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="form-header">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="../layout/index.html">
-                    <img src="../assets/img/logo/1.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"/>
+                    <img src="../assets/img/logo/1.jpg" alt="Logo" width="30" height="30"
+                        class="d-inline-block align-text-top" />
                     <span class="brand-text">Busy Canvas</span>
                 </a>
                 <a href="../layout/index.html" class="back-btn">
@@ -30,32 +33,35 @@
         <div class="container">
             <div class="form-header-content">
                 <h1>Order Your Custom Artwork</h1>
-                <p>Transform your memories into beautiful artwork. Fill out the form below to get started with your custom piece.</p>
+                <p>Transform your memories into beautiful artwork. Fill out the form below to get started with your
+                    custom piece.</p>
             </div>
-            
+
             <div class="form-card">
                 <div class="form-card-header">
                     <h2><i class="fas fa-palette"></i> Artwork Order Form</h2>
                     <p>Tell us about your vision and we'll bring it to life</p>
                 </div>
-                
-                <form action="#" method="post" enctype="multipart/form-data">
+
+                <form id="orderForm" action="#" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">
                                     <i class="fas fa-user"></i> Full Name
                                 </label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter your full name" required>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="email">
                                     <i class="fas fa-envelope"></i> Email Address
                                 </label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="your.email@example.com" required>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="your.email@example.com" required>
                             </div>
                         </div>
                     </div>
@@ -66,10 +72,11 @@
                                 <label for="phone">
                                     <i class="fas fa-phone"></i> Phone Number
                                 </label>
-                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+91 98765 43210" required>
+                                <input type="tel" class="form-control" id="phone" name="phone"
+                                    placeholder="+91 98765 43210" required>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="artworkType">
@@ -97,7 +104,8 @@
                                 <i class="fas fa-image"></i> Upload Reference Photos
                             </label>
                             <div class="file-upload-area">
-                                <input class="form-control" type="file" id="formFileMultiple" multiple accept="image/*" required>
+                                <input class="form-control" type="file" id="formFileMultiple" multiple accept="image/*"
+                                    required>
                                 <div class="upload-info">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                     <p>Drag and drop your photos here or click to browse</p>
@@ -127,7 +135,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="artStyle">
@@ -168,7 +176,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="urgency">
@@ -191,7 +199,8 @@
                         <label for="specialInstructions">
                             <i class="fas fa-comment"></i> Special Instructions & Details
                         </label>
-                        <textarea class="form-control" id="specialInstructions" name="specialInstructions" rows="5" placeholder="Tell us about your vision, any specific details, color preferences, or special requests..."></textarea>
+                        <textarea class="form-control" id="specialInstructions" name="specialInstructions" rows="5"
+                            placeholder="Tell us about your vision, any specific details, color preferences, or special requests..."></textarea>
                     </div>
 
                     <div class="form-group">
@@ -251,14 +260,14 @@
 
     <script>
         // Image preview functionality
-        document.getElementById('formFileMultiple').addEventListener('change', function(e) {
+        document.getElementById('formFileMultiple').addEventListener('change', function (e) {
             const preview = document.getElementById('imagePreview');
             preview.innerHTML = '';
-            
+
             for (let file of e.target.files) {
                 if (file.type.startsWith('image/')) {
                     const reader = new FileReader();
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         const img = document.createElement('img');
                         img.src = e.target.result;
                         img.className = 'preview-image';
@@ -268,6 +277,66 @@
                 }
             }
         });
+
+        document.getElementById("orderForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const data = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                frameType: document.getElementById("frameType").value,
+                size: document.getElementById("size").value,
+                price: document.getElementById("price").value,
+            };
+
+            const res = await fetch("backend/place_order.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            const result = await res.json();
+            alert(result.message);
+        });
+
     </script>
+    <script>
+        document.getElementById("orderForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const data = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                artworkType: document.getElementById("artworkType").value,
+                frameSize: document.getElementById("frameSize").value,
+                artStyle: document.getElementById("artStyle").value,
+                colorScheme: document.getElementById("colorScheme").value,
+                urgency: document.getElementById("urgency").value,
+                specialInstructions: document.getElementById("specialInstructions").value,
+                budget: document.getElementById("budget").value
+            };
+
+            try {
+                const res = await fetch("../backend/place_order.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await res.json();
+                alert(result.message);
+
+                if (result.success) {
+                    document.getElementById("orderForm").reset();
+                }
+            } catch (err) {
+                alert("Failed to connect to the server.");
+                console.error(err);
+            }
+        });
+    </script>
+
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="../assets/js/login-verify.js"></script>
 </head>
+
 <body>
     <!-- Header -->
     <header class="form-header">
         <nav class="navbar navbar-expand-lg">
-            <div class="container d-flex justify-content-between align-items-center" style="display: flex; justify-content: space-between; align-items: center; padding: 0 10px 0 10px;">
+            <div class="container d-flex justify-content-between align-items-center"
+                style="display: flex; justify-content: space-between; align-items: center; padding: 0 10px 0 10px;">
                 <a class="navbar-brand" href="../layout/index.html">
-                    <img src="../assets/img/logo/1.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"/>
+                    <img src="../assets/img/logo/1.jpg" alt="Logo" width="30" height="30"
+                        class="d-inline-block align-text-top" />
                     <span class="brand-text">Busy Canvas</span>
                 </a>
                 <a href="../layout/index.html" class="back-btn">
@@ -41,7 +45,8 @@
                     <div class="form-group">
                         <div class="input-group">
                             <i class="fas fa-envelope input-icon"></i>
-                            <input type="email" class="form-control" id="login-name" placeholder="Email Address" required>
+                            <input type="email" class="form-control" id="login-name" placeholder="Email Address"
+                                required>
                         </div>
                     </div>
 
@@ -120,7 +125,7 @@
         function togglePassword() {
             const passwordInput = document.getElementById('login-pass');
             const toggleIcon = document.querySelector('.toggle-password');
-            
+
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
                 toggleIcon.classList.remove('fa-eye-slash');
@@ -132,5 +137,41 @@
             }
         }
     </script>
+    <script>
+        document.querySelector("form").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("login-name").value.trim();
+            const password = document.getElementById("login-pass").value.trim();
+
+            if (!email || !password) {
+                alert("Please enter your email and password.");
+                return;
+            }
+
+            try {
+                const res = await fetch("../backend/login.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await res.json();
+                alert(data.message);
+
+                if (data.success) {
+                    // Save session info if needed
+                    localStorage.setItem("username", data.user.name);
+                    window.location.href = "index.html"; // redirect to homepage
+                }
+
+            } catch (err) {
+                alert("Failed to connect to server. Make sure your PHP server is running.");
+                console.error(err);
+            }
+        });
+    </script>
+
 </body>
+
 </html>
