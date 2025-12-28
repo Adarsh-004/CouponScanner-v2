@@ -16,30 +16,49 @@ app.get("/api/health", (_req, res) => {
 
 const { MONGO_URI, PORT = 5000 } = process.env;
 
-async function start() {
+let mongoConnected = false;
+
+async function connectDB() {
+  if (mongoConnected) return;
+  
   if (!MONGO_URI) {
     console.error("MONGO_URI is not set. Add it to your .env file.");
-    process.exit(1);
+    throw new Error("MONGO_URI is not set");
   }
 
   try {
     await mongoose.connect(MONGO_URI);
     console.log("MongoDB connected");
+    mongoConnected = true;
   } catch (err) {
     console.error("Failed to connect to MongoDB", err);
-    process.exit(1);
+    throw err;
   }
+}
 
-  app.use("/api/coupons", couponRoutes);
+app.use("/api/coupons", couponRoutes);
 
-  app.use((err, _req, res, _next) => {
-    console.error(err);
-    res.status(500).json({ error: "Something went wrong" });
-  });
+app.use((err, _req, res, _next) => {
+  console.error(err);
+  res.status(500).json({ error: "Something went wrong" });
+});
 
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+// For local development
+if (process.env.NODE_ENV !== "production") {
+  const PORT_NUM = parseInt(PORT);
+  app.listen(PORT_NUM, async () => {
+    await connectDB();
+    console.log(`Server running on port ${PORT_NUM}`);
   });
 }
 
-start();
+// For Vercel (serverless)
+export default async (req, res) => {
+  try {
+    await connectDB();
+    return app(req, res);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
